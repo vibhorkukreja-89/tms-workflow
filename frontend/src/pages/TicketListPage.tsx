@@ -32,7 +32,7 @@ export function TicketListPage(): React.ReactElement {
           <p className="eyebrow">TMS</p>
           <h1>Tickets</h1>
         </div>
-        <Link to="/tickets/new" className="btn btn-primary">
+        <Link to="/tickets/new" className="btn btn-new-ticket">
           New ticket
         </Link>
       </header>

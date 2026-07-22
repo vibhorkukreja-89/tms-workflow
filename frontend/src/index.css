@@ -176,6 +176,16 @@ textarea {
   background: var(--primary-hover);
 }
 
+.btn-new-ticket {
+  background: #8957e5;
+  color: #fff;
+}
+
+.btn-new-ticket:hover:not(:disabled),
+.btn-new-ticket:active:not(:disabled) {
+  background: #7340d4;
+}
+
 .btn-secondary {
   background: #fff;
   border-color: var(--border);
