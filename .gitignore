@@ -144,3 +144,8 @@ vite.config.ts.timestamp-*
 
 # Superpowers brainstorm companion
 .superpowers/
+
+# Keep project Cursor skills, rules, and SDLC artefacts tracked
+# (overrides common global .cursor ignores)
+!.cursor/
+!.cursor/**
