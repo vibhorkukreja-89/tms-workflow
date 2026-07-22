@@ -1,0 +1,94 @@
+---
+description: TMS coding standards for all implementation work
+alwaysApply: true
+---
+
+# Code Standards
+
+Applies to all coding sessions in this workspace. Teams can adapt as needed.
+
+---
+
+## Architecture Fit
+
+- Read surrounding files before writing anything — match existing patterns exactly
+- Same error handling style, service layering, IoC patterns, and consumer/handler structure
+- A new function should be indistinguishable in style from the functions around it
+- Default is to blend in — only refactor when there is a clear, justified reason
+
+---
+
+## Language and Tooling
+
+- Check `package.json` and `.nvmrc` before writing — use only features available in the project's Node.js version
+- TypeScript: explicit types, no `any`, no type assertions unless genuinely unavoidable
+- `async/await` over raw promise chains
+- Prefer utilities already in the project's dependencies — don't reimplement or add libraries without justification
+
+---
+
+## Function Design
+
+- Under 20 lines where possible
+- Single responsibility — one function does one thing
+- If a function needs a comment to explain what it does, split or rename it
+
+---
+
+## JSDoc
+
+Every new function must have a single-line JSDoc comment explaining *why* it exists or what business rule it encodes — not what the code literally does.
+
+```ts
+/** Skips comment sync when the ticket is closed, avoiding overwrite of resolved discussion. */
+async function syncTicketComments(...) { ... }
+
+/** Loads the caller's roles so auth middleware can reject requests outside the allowed set. */
+function resolveAuthRoles(userId: string): Promise<string[]> { ... }
+```
+
+Skip if the function name already says it all.
+
+---
+
+## Error Handling
+
+- Use typed error classes with explicit status codes — never throw generic `Error` from services
+- Use `Result` objects with context-rich messages for validation failures
+- Catch at the right level — don't swallow errors silently, don't rethrow without adding context
+
+---
+
+## No Dead Code
+
+- No commented-out code, unused imports, or TODO comments in committed code
+- If something is genuinely deferred, create a Jira ticket instead
+
+---
+
+## Logging
+
+- `log.info` — significant state transitions (ticket created, ticket updated, comment posted)
+- `log.warn` — recoverable issues needing attention (retryable API failure, deferred sync)
+- `log.error` — failures with full context — include relevant IDs and ticket keys
+- Never log PII or sensitive data
+- No noisy debug logs in batch/event handlers — use `log.debug` at most
+
+---
+
+## TDD
+
+- Write failing tests first — implementation follows
+- 2-3 tests per function: happy path, key failure case, edge case
+- Integration tests over excessive unit tests — test behaviour, not implementation
+- Do not write tests for coverage numbers — write tests that catch real bugs
+- Coverage targets: line ≥85%, branch ≥80%, function ≥90%
+
+---
+
+## Code Organisation
+
+- 3-5 files per feature — not 15+ micro-files
+- Static imports only — no dynamic imports unless justified
+- 500-1,500 lines per file is acceptable — readable over rigid
+- Abstract after 3+ occurrences — not before
