@@ -43,6 +43,7 @@ Go through each item explicitly. Report pass/fail for each:
 - [ ] DB migration exists and verified (if required)
 - [ ] Feature toggle in place and documented (if required)
 - [ ] Session file updated with final status under `.cursor/sessions/`
+- [ ] Final session file committed and pushed to remote (so handover state is not local-only)
 
 ---
 
@@ -71,4 +72,5 @@ sit-and-evidence: complete
 definition-of-done: complete ✅
 Feature: DONE
 ```
-- Confirm with SME: "All done checks passed — this feature is complete."
+- **Push the final session file to remote (non-negotiable):** After writing `Feature: DONE`, the session file must not remain a local-only change. Commit `.cursor/sessions/<feature-name>-session.md` (and any other DoD-only status updates) and push to the default branch via a small follow-up PR or direct push per team branch policy. Ask the SME before committing/pushing if approval is required. Do not mark the feature complete in chat until the remote update is done or the SME explicitly defers it with a tracked follow-up.
+- Confirm with SME: "All done checks passed — this feature is complete. Session file is updated on remote."

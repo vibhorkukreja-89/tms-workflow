@@ -74,11 +74,12 @@ frontend: .cursor/specs/new-ticket-button-color/frontend/tasks.md
 - [x] Task 2 — Apply scoped purple styles to homepage New ticket button — complete
 
 ## Status
-current-state-analyst: complete (second-pass cross-referenced)
+current-state-analyst: complete
 requirements-gatherer: complete
 jira-story-creator: complete
 confluence-design-page: complete
 task-breakdown: complete
-implementation: in progress — code review passed, awaiting PR
-sit-and-evidence: pending
-definition-of-done: pending
+implementation: complete
+sit-and-evidence: complete
+definition-of-done: complete ✅
+Feature: DONE
