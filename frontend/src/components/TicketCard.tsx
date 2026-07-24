@@ -7,8 +7,13 @@ interface TicketCardProps {
 }
 
 export function TicketCard({ ticket }: TicketCardProps): React.ReactElement {
+  const rowClassName =
+    ticket.assignedTo == null
+      ? 'ticket-row ticket-row--unassigned'
+      : 'ticket-row'
+
   return (
-    <Link to={`/tickets/${ticket.id}`} className="ticket-row">
+    <Link to={`/tickets/${ticket.id}`} className={rowClassName}>
       <div className="ticket-row-main">
         <span className="ticket-row-title">{ticket.title}</span>
         <span className="ticket-row-meta">

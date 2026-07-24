@@ -250,6 +250,14 @@ textarea {
   background: #f8fafc;
 }
 
+.ticket-row--unassigned {
+  background: #fbdddd;
+}
+
+.ticket-row--unassigned:hover {
+  background: #fbdddd;
+}
+
 .ticket-row-main {
   display: flex;
   flex-direction: column;
