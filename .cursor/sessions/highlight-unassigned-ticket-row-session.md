@@ -78,12 +78,24 @@ frontend: .cursor/specs/highlight-unassigned-ticket-row/frontend/tasks.md
 - [x] Task 1 — Add failing coverage for unassigned row class/CSS contract — complete
 - [x] Task 2 — Apply unassigned row highlight on ticket list — complete
 
+## SIT Evidence
+- TAT-3: all ACs pass (2026-07-24) — local/pre-merge; evidence posted to Jira
+- PR #4 not merged (SME choice)
+- Status: Done
+- BAT: Passed (2026-07-24) — comment posted
+
+## Definition of Done
+- Checklist passed with SME waiver: PR merge deferred (PR #4 left OPEN by choice)
+- Tracked follow-up: merge https://github.com/vibhorkukreja-89/tms-workflow/pull/4 when ready for main
+- Session final status committed to feature branch remote (not merged to main)
+
 ## Status
-current-state-analyst: complete (second-pass cross-referenced)
+current-state-analyst: complete
 requirements-gatherer: complete
 jira-story-creator: complete
 confluence-design-page: complete
 task-breakdown: complete
 implementation: complete
-sit-and-evidence: pending
-definition-of-done: pending
+sit-and-evidence: complete
+definition-of-done: complete ✅
+Feature: DONE
